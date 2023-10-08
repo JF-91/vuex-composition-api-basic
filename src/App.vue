@@ -1,12 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <layout-div>
+
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+  </layout-div>
 </template>
 
+
+
+<script>
+import LayoutDiv from './LayoutDiv.vue'
+export default {
+  name: 'App',
+  components:{
+    LayoutDiv
+  }
+}
+</script>
+
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
